@@ -1,6 +1,6 @@
 import { lineCircle } from "./utils.js";
 
-const BOUNCE = 0.92;
+const BOUNCE = 0.92; // 탄성 (0 탄성 없음)
 
 export class BounceString {
     constructor(pos, color) {
@@ -41,7 +41,7 @@ export class BounceString {
 
         ctx.beginPath();
         ctx.fillStyle = '#ff00ff';
-        ctx.arc(moveX, moveY, 60, 0, Math.PI * 2, false);
+        ctx.arc(moveX, moveY, 30, 0, Math.PI * 2, false);
         ctx.fill();
 
         ctx.beginPath();
@@ -57,7 +57,7 @@ export class BounceString {
             moveY,
             this.detect,
         )) {
-            this.detect = 300;
+            this.detect = 300; // 튕김의 정도 조절
             let tx = (this.points[1].ox + moveX) / 2;
             let ty = moveY;
             this.points[1].vx = tx - this.points[1].x;
